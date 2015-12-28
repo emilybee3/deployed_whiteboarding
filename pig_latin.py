@@ -11,6 +11,7 @@
 
 ###########################################################################################
 ###########################################################################################
+#first function will turn words into pig latin
 
 #Example input:
 
@@ -24,11 +25,30 @@ def pig_latin(word):
 
     #first letter = vowel condition
     if word[0] in vowels:
-        print word + "yay"
+        return word + "yay"
 
     #first letter = consenent condition
     else:
-        print word[1:] + word[0] + "ay"
+        return word[1:] + word[0] + "ay"
 
-pig_latin("hello")
-pig_latin("android")
+#second function will pig latin all the words in a phrase
+
+#example input: 
+
+#"Hello my name is so and so" = "ellohey ymay amenay isyay osay andyay osay"
+
+def pig_phrase(phrase):
+    #split phrase into words so that pig_latin can work on each part
+    split_phrase = phrase.split(" ")
+
+    #create a list to put all the pig latined words:
+    piggied_words = []
+
+    #apply pig_latin to each word
+    for word in split_phrase:
+        piggied_words.append(pig_latin(word))
+
+    #join list to return full phrase
+    print " ".join(piggied_words)
+
+pig_phrase("I am a sentence")
